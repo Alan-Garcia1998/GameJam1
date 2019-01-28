@@ -12,6 +12,7 @@ public class Player_Controller : MonoBehaviour
     private int scoreCount;
     private int health;
     public Text healthText;
+    public float jumpHeight;
     // Use this for initialization
     void Start()
     {
@@ -32,6 +33,10 @@ public class Player_Controller : MonoBehaviour
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
         myRigidbody.AddForce(movement * speed);
+
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            myRigidbody.AddForce(Vector3.up * jumpHeight);
+                }
     }
     // Update is called once per frame
     void Update()
